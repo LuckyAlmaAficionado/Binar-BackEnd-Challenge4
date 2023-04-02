@@ -1,0 +1,65 @@
+Framework adalah sebuah kerangka kerja atau sebuah template yang terdiri dari berbagai library atau kerangka kasar untuk membuat suatu program, kekurangan dari framework biasanya lebih ke library yang tidak terpakai yang membuat memory aplikasi jadi besar.
+Kelebihan:  
+-	Proses development tidak dimulai dari nol
+-	Developer bisa lebih fokus di business logic
+Kekurangan: 
+-	Ada library yang tidak digunakan
+-	Memory aplikasi jadi lebih besar
+-	Bisa menurunkan performace
+Func fact program bisa terdiri dari beberapa framework tergantung dengan arsitektur program tersebut.
+Java memiliki beberapa framework seperti:
+-	Spring
+Spring memiliki dokumentasi yang mudah ditemukan, selain itu banyak komunitas Spring yang tersedia sebagai wadah untuk bertukar pemikiran, framework ini memiliki banyak fitur mulai dari:
+o	Menghubungkan aplikasi dengan database
+o	Membuat Rest Api
+o	Membuat tampilan WEB
+o	Membentuk suatu security
+-	Quarkus
+Quarkus framework yang dirancang oleh Red Hat pada tahun 2019, punya performace yang tinggi sekali karena initial realease masih belum terlalu lama, belum memiliki banyak fitur dan masih ada beberapa fitur yang mengalami bug. Framework ini bisa jadi pulihan program dengan tugas sederhana. Yaitu program yang membutuhkan performace sangat cepat.
+-	Struts
+Struts framework MVC yang memungkingkan developer untuk membuat program secara full-stack. Dikembangkan oleh Apache, memiliki fitur yang banyak tapi struts tidak sepopuler Spring, sehingga dokumentasinya tidak banyak.
+Spring MVC dan Spring Boot adalah bagian dari Spring framwork yang semuannya punya fitur utama dari Spring. Spring Boot merupakan modul dari Spring framework yang biasanya dipakai untuk membuat aplikasi yang bersifat standalone.
+
+APA ITU STANDALONE ?
+Standalone aplikasi adalah aplikasi yang berjalan local di device dan tidak memerlukan apapun untuk berfungsi, semua logika berjalan di dalam aplikasi jadi tidak memerlukan internet koneksi atau layanan lain untuk di install.
+
+Spring-Boot memberikan konfigurasi yang sifatnya default, tanpa menggunakan konfigurasi kompleks seperti Spring Framework biasa, Spring-Boot dapat dikatakan sebagai versi Spring Framework yang lebih mudah karena konfigurasinya dapat di atur secara otomatis.
+
+Perbedaan Spring MVC dengan Spring-Boot?
+-	Menurut pebedaan pribadi: 
+o	Spring MVC: masih memerlukan beberapa library dan juga jar yang dimana untuk menkonfigurasinya diperlukan import dari lib jar yang sudah di unduh kemudian dimasukan kedalam code editor dan di sambungkan kepada framework yang digunakan.
+o	Spring-Boot: masih memerlukan beberapa library yang dimana lebih mudah untuk didapatkan dan juga di akses selain itu mudah untuk di terapkan serta cepat, dapat di buat secara gampang menggunakan spring initializr
+-	Menurut perbedaan PPT:
+o	Spring MVC memulai project menggunakan project Maven, sedangkan Spring-Boot udah menyediakan project starter dengan menggunakan Spring initializr.
+
+Mengapa Spring-Boot tidak memiliki folder webapp seperti Spring MVC?
+-	Spring Boot bisa dipakai untuk kebutuhan multipurpose
+
+Architectural pattern adalah patter atau solusi yang pernah dibuat sebelumnya dan dipakai sebagai arsitektur dari sebuah software, MVC adalah salah satu turunan dari salah satu architectural patter lain, yaitu layerd pattern. Layered pattern merupakan architectural pattern yang memakai beberapa layer program untuk membuat suatu software.
+
+Arsitektur MVC terdiri dari 3 layer
+-	Model, layer dari aplkasi yang dibuat untuk dikirimkan ke layer lain.
+-	View, layer untuk menapilkan dan memberikan perintah pada aplikasi.
+-	Controller, layer yang berisi businnes logic untuk mengolah request yang berasal dari view.
+
+Apa itu Application Server?
+Application server merupakan JVM yang menjalankan aplikasi java di dalamnya, application server dipakai berupa Application webserver selain itu juga bisa menghandle request dengan koneksi HTTP dan HTTPS.
+
+Bean & Containers
+Bean adalah object dari sebuah aplikasi atau sebuah object dari sebuah class sedangakan Containers sebagai wadah, Interaksi antara bean dikenal sebagai dependency injection. Bean saling membutuhkan satu dengan yang lain dimana bean yang dibuthkan oleh Bean lain disebut dengan dependency
+
+Annotation:
+-	@Service: berisi businnest logic
+-	@Repository: dipakai di data acces object (DAO) supaya bisa memberikan exception terkai dengan presisting ke database
+-	@PorstConstruct: untuk mengeksekusi method content yang ada ketika bean mau dibuat.
+-	@PostConstruct: method yang menggunakan anotation ini akan di eksekusi sebelum sebuah bean dihancurkan.
+-	@Autowired: digunakan unutk dependency injection, selain itu bisa dipakai bukan Cuma di level field saja tapi di lever method.
+Configuration application.properties
+Application.properties merupakan default file properties dari aplikasi yang dibuat menggunakan Spring Boot. Fungsi dari application.properties:
+-	Menyimpan value yang bersifat default atau constant
+-	Menyimpan konfigurasi dari dependency. Beberapa value dari konfigurasi bisa di diatur pakai file application.properties
+-	Value bisa ditimpa atau di override sama file environment, sehingga nilainya bisa diubah sesuai dengan environment dimana aplikasi tersebuh di-deploy
+Cara mengambil value dari fule application.properties dapat menggunakan: 
+-	Annotation @value
+-	Pakai library Spring framework Environment
+-	Mengubahnya jadi sebuah java object
