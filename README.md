@@ -26,3 +26,4 @@ Saya adalah mahasiswa semester 6 di Universitas Dian Nuswantoro yang memiliki ke
 ## Screenshots
 
 ![App Screenshot](https://user-images.githubusercontent.com/79635999/229368256-e2f3d64e-e09c-400b-9b3b-cd37267b76b3.png)
+![App Screenshot](https://user-images.githubusercontent.com/79635999/229439436-f9ab0693-caad-4a6d-8c0d-561ad681b17b.png)
