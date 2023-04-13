@@ -13,22 +13,22 @@ public class SeatsController {
     @Autowired
     private SeatsService service;
 
-    @GetMapping("/getseat")
+    @GetMapping("/getseat") // bisa
     public List<Seats> getAllSeats() {
         return service.getAllSeats();
     }
 
-    @PostMapping("/postseat")
+    @PostMapping("/postseat") // bisa
     public Seats postSeat(@RequestBody Seats seat) {
         return service.inputSeat(seat);
     }
 
-    @PostMapping("/postseats")
+    @PostMapping("/postseats") // bisa
     public List<Seats> postSeats(@RequestBody List<Seats> seats) {
         return service.inputSeats(seats);
     }
 
-    @PutMapping("/updateseat")
+    @PutMapping("/updateseat") // bisa
     public Seats updateSeat(@RequestBody Seats seat) {
         return service.updateSeat(seat);
     }

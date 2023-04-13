@@ -16,7 +16,7 @@ public class Films {
     String filmName;
     @Column(name = "isshowing")
     Boolean isShowing;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "filmcode", referencedColumnName = "filmcode")
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Schedules.class)
+    @JoinColumn(name = "filmcode", referencedColumnName = "filmcode", insertable = false, updatable = false)
     List<Schedules> schedules;
 }

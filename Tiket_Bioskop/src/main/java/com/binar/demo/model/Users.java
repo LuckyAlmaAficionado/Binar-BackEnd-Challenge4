@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Entity
 public class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userid")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int userId;
     @Column(name = "username")
     String username;

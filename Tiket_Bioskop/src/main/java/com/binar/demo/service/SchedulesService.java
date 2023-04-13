@@ -24,8 +24,10 @@ public class SchedulesService {
         return repository.saveAll(schedules);
     }
 
-    public Schedules postSchedule(Schedules schedules)  {
-        if (!isExist(schedules.getScheduleId())) throw new RuntimeException("jadwal tidak ditemukan");
+    public Schedules postSchedule(Schedules schedules) {
+        if (repository.findById(schedules.getScheduleId()).isPresent()) {
+            throw new RuntimeException("id: " + schedules.getScheduleId() + " sudah ada");
+        }
         return repository.save(schedules);
     }
 

@@ -11,12 +11,8 @@ import java.util.Date;
 @Entity
 public class Schedules {
     @Id
-    @Column(name = "scheduleid")
+    @Column(name = "scheduleid", unique = true, nullable = false)
     int scheduleId;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "filmcode")
-//    private Films filmCode;
-
     @Column(name = "date")
     Date date;
     @Column(name = "starttime")

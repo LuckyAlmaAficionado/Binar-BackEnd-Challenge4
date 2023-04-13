@@ -17,25 +17,23 @@ public class UsersController {
 
     @GetMapping("/getusers") // bisa
     public List<Users> getAllUsers() {
-        log.info("getAllUsers");
         return service.getAllUsers();
     }
 
     @GetMapping("/getbyusername") // bisa
-    public List<Users> getByUsername(@RequestBody Users name) {
-        log.info("getByUsername: " + name.getUsername());
-        return service.findByUserName(name.getUsername());
+    public List<Users> getByUsername(@RequestBody String name) {
+        return service.findByUserName(name);
     }
 
     @PostMapping("/postuser") // bisa
     public Users postUser(@RequestBody Users users) {
-        log.info("data masuk");
+        log.info("postUser: " + users);
         return service.postUser(users);
     }
 
     @PutMapping("/updateuser") // bisa
     public Users updateUser(@RequestBody Users users) {
-        log.info("data update");
+        log.info("data update " + users);
         return service.updateUser(users);
     }
 }
