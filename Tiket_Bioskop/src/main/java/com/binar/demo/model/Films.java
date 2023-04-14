@@ -19,4 +19,6 @@ public class Films {
     @OneToMany(cascade = CascadeType.ALL, targetEntity = Schedules.class)
     @JoinColumn(name = "filmcode", referencedColumnName = "filmcode", insertable = false, updatable = false)
     List<Schedules> schedules;
+
+
 }

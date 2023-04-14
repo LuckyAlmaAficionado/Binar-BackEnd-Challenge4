@@ -3,6 +3,7 @@ package com.binar.demo.controller;
 import com.binar.demo.model.Users;
 import com.binar.demo.service.UsersService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,5 +36,10 @@ public class UsersController {
     public Users updateUser(@RequestBody Users users) {
         log.info("data update " + users);
         return service.updateUser(users);
+    }
+
+    @DeleteMapping("/deleteuser")
+    public String deleteUser(@RequestBody Users users) {
+        return service.deleteUser(users.getUserId());
     }
 }

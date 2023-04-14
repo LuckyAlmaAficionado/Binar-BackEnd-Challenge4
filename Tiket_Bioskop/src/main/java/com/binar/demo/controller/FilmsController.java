@@ -13,9 +13,9 @@ public class FilmsController {
     @Autowired
     private FilmsService service;
 
-    @GetMapping("/getfilms")
+    @GetMapping("/getfilmsshowing")
     public List<Films> getFilms() {
-        return service.getAllFilms();
+        return service.getByIsShowingActive();
     }
 
     @GetMapping("/getbyname")

@@ -5,6 +5,9 @@ import com.binar.demo.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,14 +31,13 @@ public class BookingService {
         return repository.saveAll(booking);
     }
 
+    LocalDateTime localDateTime = LocalDateTime.now();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
     public Booking updateBooking(Booking booking) {
-        if (repository.findById(booking.getBookingId()).isPresent()) {
-            Booking update = repository.findById(booking.getBookingId()).orElse(null);
-            update.setPayment(booking.getPayment());
-            return repository.save(booking);
-        } else {
-            throw new RuntimeException("data dengan id: " + booking.getBookingId() + " tidak ditemukan");
-        }
+        Booking update = repository.findById(booking.getBookingId()).orElseThrow(() -> new RuntimeException("data tidak ditemukan"));
+        update.setPayment(booking.getPayment());
+        return repository.save(booking);
     }
 
     public String deleteById(int id) {

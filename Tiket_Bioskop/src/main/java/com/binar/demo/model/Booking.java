@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 
 @Table(name = "booking")
 @Data
@@ -19,8 +20,8 @@ public class Booking {
     String seat;
     @Column(name = "payment")
     String payment;
-    @Column(name = "lastupdate")
-    Date lastUpdate;
+    @Column(name = "lastupdate", insertable = false, updatable = false)
+    LocalDate lastUpdate = LocalDate.now();
     @Column(name = "filmcode")
     String filmCode;
 }

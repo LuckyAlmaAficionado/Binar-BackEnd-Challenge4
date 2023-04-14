@@ -12,6 +12,7 @@ import java.util.Date;
 public class Schedules {
     @Id
     @Column(name = "scheduleid", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int scheduleId;
     @Column(name = "date")
     Date date;
