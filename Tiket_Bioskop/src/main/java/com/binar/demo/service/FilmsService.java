@@ -13,6 +13,7 @@ import java.util.List;
 public class FilmsService {
     @Autowired
     FilmRepository repository;
+
     public List<Films> getAllFilms() {
         return repository.findAll();
     }
@@ -22,8 +23,12 @@ public class FilmsService {
         log.info("postFilms: ", films);
         return repository.saveAll(films);
     }
+
     public Films postFilm(Films films) {
         if (repository.findById(films.getFilmCode()).isPresent()) throw new RuntimeException("data sudah ada");
+        for (int i = 0; i < films.getSchedules().size(); i++) {
+            films.getSchedules().get(i).setFilmCode(films.getFilmCode());
+        }
         log.info("data dijalankan");
         return repository.save(films);
     }
@@ -50,7 +55,8 @@ public class FilmsService {
     }
 
     public List<Films> getByName(String movieName) {
-        if (repository.findByFilmNameContaining(movieName).isEmpty()) throw new RuntimeException("data tidak ditemukan");
+        if (repository.findByFilmNameContaining(movieName).isEmpty())
+            throw new RuntimeException("data tidak ditemukan");
         return repository.findByFilmNameContaining(movieName);
     }
 
@@ -58,6 +64,13 @@ public class FilmsService {
     public String deleteFilm(Films films) {
         log.info("deleteFilm: ", films);
         int id = films.getFilmCode();
+        repository.deleteById(id);
+        return "data dengan id: " + id + ", berhasil dihapus";
+    }
+
+    public String deleteFilmById(int id) {
+        log.info("deleteFilmById: " + id);
+        if (repository.findById(id).isEmpty()) throw new RuntimeException("data tidak ditemukan");
         repository.deleteById(id);
         return "data dengan id: " + id + ", berhasil dihapus";
     }

@@ -21,14 +21,15 @@ public class UsersService {
 
     // menambahkan user
     public Users postUser(Users user) {
-        if (repository.findById(user.getUserId()).isPresent())
-            throw new RuntimeException("data dengan id: " + user.getUserId() + " sudah ada");
+        Users check = repository.findById(user.getUserId()).orElseThrow(() -> new RuntimeException("data dengan id: " + user.getUserId() + " sudah ada"));
+        log.info("postUser: ", user);
         return repository.save(user);
     }
 
     // mengupdate user
     public Users updateUser(Users users) {
         Users update = repository.findById(users.getUserId()).orElseThrow(() -> new RuntimeException("data tidak ditemukan"));
+        log.info("updateUser: " + users);
         update.setEmail(users.getEmail());
         update.setPassword(users.getPassword());
         update.setUsername(users.getUsername());
